@@ -168,7 +168,7 @@ export default function Home() {
   const total = subtotal + tax
 
   const handlePreset = (name: string) => {
-    const preset = presets[name]
+    const preset = presets[name as keyof typeof presets]
     if (!preset) return
     setStore(preset.store)
     setItems(preset.items.map(i => ({
@@ -344,6 +344,8 @@ export default function Home() {
         {"   Thanks for shopping!\n"}
         {"=".repeat(30)}
       </div>
+
+
 
       <div style={{ margin: '2rem 0', textAlign: 'center' }}>
         <ins className="adsbygoogle"
